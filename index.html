@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Emoji Text Converter</title>
+    <link rel="stylesheet" href="./View/CSS/main-style.css">
+</head>
+
+<body onkeypress="convertKeyTest(event.keyCode)">
+    <header>
+
+        <header-logo>
+            <img src="./images/EmojiConverterIcon.png" alt="" srcset="">
+        </header-logo>
+        <h1>Discord Emoji Converter</h1>
+        <p>To Use this web app simply type the message you want to display in emojs and click convert or enter </p>
+    </header>
+    <form id="convertForm" action="" autocomplete="off">
+        <input class="formItem" id="userInput" type="text" placeholder="Message to Convert:">
+        <input class="formItem formBtn" id="userInputBtn" type="button" value="Convert"></ifsdnput>
+        <textarea class="formItem" id="userOutput"
+            placeholder="Press Convert or Enter to copy Emoji Text Codes to your clipboard"></textarea>
+
+    </form>
+
+</body>
+<script>
+
+    function convertKeyTest(e) {
+        console.log(e);
+
+        if (e == 13) {
+
+            clearOutput();
+        }
+        ConverterPreview();
+
+
+    }
+    var input = "";
+    document.getElementById('userInputBtn').addEventListener('click', function () {
+        Converter(); clearOutput();
+    });
+    var input = document.getElementById("body");
+    function Converter() {
+
+        //clears place holder on and replaces it with most recent entry
+        document.getElementById('userOutput').innerHTML = "";
+
+        input = document.getElementById("userInput").value;
+        for (var i = 0; i < input.length; i++) {
+            var inputslice = input.slice(i, i + 1);
+            OutputBuilder(inputslice)
+
+
+        }
+        var userInput = document.getElementById("userOutput");
+
+        userInput.select();
+        userInput.setSelectionRange(0, 99999); /*For mobile devices*/
+        document.execCommand("copy");
+
+
+
+    };
+    function ConverterPreview() {
+        //clears place holder on and replaces it with most recent entry
+        document.getElementById('userOutput').innerHTML = "";
+
+        input = document.getElementById("userInput").value;
+        for (var i = 0; i < input.length; i++) {
+            var inputslice = input.slice(i, i + 1);
+            OutputBuilder(inputslice)
+
+
+        }
+        var userInput = document.getElementById("userOutput");
+
+
+    }
+
+
+    function OutputBuilder(splice) {
+        var inputSplice = splice.toLowerCase();
+
+        if (inputSplice == " ") {
+            document.getElementById('userOutput').innerHTML += ":clap:";
+        } else if (inputSplice != " " || inputSplice != null) {
+            document.getElementById('userOutput').innerHTML += ":regional_indicator_" + inputSplice + ": ";
+        } else {
+            document.getElementById('userOutput').innerHTML += inputSplice;
+        }
+
+    };
+    function clearOutput() {
+        document.getElementById('userOutput').innerHTML = "";
+
+    }
+
+
+</script>
+
+</html>

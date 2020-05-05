@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #26262B;
+    color: #ffff;
+}
+
+
+/* Form Style */
+#convertForm {
+    /* Aligns items inside of the form. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* Aligns for to the center fo the page. */
+    position: absolute;
+    left: calc(50% - 40vw);
+    top: calc(50% - 40vh);
+    /* Restricts the form to 80% of the viewport to allow for responisve design on smaller devices. */
+    width: 80vw;
+    height: 80vh;
+}
+
+.formItem {
+    margin: 5px;
+    padding: 10px;
+    color: #18191C;
+}
+
+.formBtn {
+    width: 100px;
+    position: relative;
+    left: calc(50% - 50px);
+    background: #7388DA;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+}
+
+header-logo img {
+    width: 80px;
+    height: 75px;
+
+}
+
+#userOutput {}
